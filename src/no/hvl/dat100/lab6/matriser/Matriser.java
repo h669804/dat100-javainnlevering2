@@ -93,12 +93,11 @@ public class Matriser {
 	// e)
 	public static int[][] speile(int[][] matrise) {
 		int a = 0;
-		int b = matrise[a].length - 1;
 		int[][] speilMatrise = new int[matrise.length][matrise[a].length];
 
 		for (a = 0; a < matrise.length; a++) {
 			for (int c = 0; c < matrise[a].length; c++) {
-				speilMatrise[a][c] = matrise[a][b - c];
+				speilMatrise[a][c] = matrise[c][a];
 			}
 		}
 		return speilMatrise;
