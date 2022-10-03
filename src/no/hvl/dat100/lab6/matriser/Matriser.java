@@ -106,22 +106,25 @@ public class Matriser {
 
 	// f)
 	public static int[][] multipliser(int[][] a, int[][] b) {
-
+		int y = 0;
 		int flestRader = Math.max(a.length, b.length);
 		int flestElementer = Math.max(a[0].length, b[0].length);
 
 		int[][] multiMatrise = new int[flestRader][flestElementer];
 		int[] nyVerdi = new int[flestElementer];
-		// følgende kode vil ikke virke for alle vilkårlige matriser
 		if (a.length == b[0].length || b.length == a[0].length) {
 			for (int k = 0; k < multiMatrise.length; k++) {
 				for (int i = 0; i < multiMatrise[k].length; i++) {
-					nyVerdi[i] = (a[k][0] * b[0][i]) + (a[k][1] * b[1][i]) + (a[k][2] * b[2][i]);
+					y = 0;
+					nyVerdi[i] = 0;
+					while (y < flestElementer) {
+						nyVerdi[i] += a[k][y] * b[y][i];
+						y++;
+					}
 					multiMatrise[k][i] = nyVerdi[i];
 				}
 			}
 		}
-
 		return multiMatrise;
 	}
 }
