@@ -26,9 +26,9 @@ public class Matriser {
 		// String gange =tilStreng(gangeMatrise);
 		// System.out.println(gange);
 
-		int[][] multiMatrise1 = { { 1, 2 }, { 3, 4 }, { 5, 6 } };
+		int[][] multiMatrise1 = { { 1, 2, 3 }, { 3, 4, 5 }, { 5, 6, 7 } };
 
-		int[][] multiMatrise2 = { { 1, 2, 3 }, { 5, 6, 7 }, { 1, 2, 3, } };
+		int[][] multiMatrise2 = { { 1, 2, 3 }, { 4, 5, 6 }, { 5, 6, 7 } };
 
 		int[][] multimatrise = multipliser(multiMatrise1, multiMatrise2);
 		String mM = tilStreng(multimatrise);
@@ -107,19 +107,16 @@ public class Matriser {
 	// f)
 	public static int[][] multipliser(int[][] a, int[][] b) {
 
-		int h = 0;
-		int h2 = 1;
-
 		int flestRader = Math.max(a.length, b.length);
-		int flestElementer = Math.max(a[h].length, b[h].length);
+		int flestElementer = Math.max(a[0].length, b[0].length);
 
 		int[][] multiMatrise = new int[flestRader][flestElementer];
 		int[] nyVerdi = new int[flestElementer];
-		//følgende kode vil ikke virke for alle vilkårlige matriser
-		if (a.length == b[h].length || b.length == a[h].length) {
+		// følgende kode vil ikke virke for alle vilkårlige matriser
+		if (a.length == b[0].length || b.length == a[0].length) {
 			for (int k = 0; k < multiMatrise.length; k++) {
 				for (int i = 0; i < multiMatrise[k].length; i++) {
-					nyVerdi[i] = (a[k][h] * b[h][i]) + (a[k][h2] * b[h2][i]);
+					nyVerdi[i] = (a[k][0] * b[0][i]) + (a[k][1] * b[1][i]) + (a[k][2] * b[2][i]);
 					multiMatrise[k][i] = nyVerdi[i];
 				}
 			}
